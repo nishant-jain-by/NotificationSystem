@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+logging:
+  level.com.target.service.output.email.MockEmailService: INFO
+  level.com.target: DEBUG
+
+spring:
+  profiles:
+    active: "mock"
+
+kafka:
+  bootstrap.address: localhost:9092
+  group.id: "nj-group"
