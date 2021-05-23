@@ -1,5 +1,6 @@
 package com.target.service.factory;
 
+import com.target.exceptions.NotSupportedSourceOrEventException;
 import com.target.service.IsSupportedEvent;
 import com.target.service.IsSupportedSourceSystem;
 import java.util.List;
@@ -23,7 +24,7 @@ public interface IServiceFactory<T extends IsSupportedSourceSystem & IsSupported
         .filter(service -> service.supportsSource(sourceSystem))
         .filter(service -> service.supportsEvent(eventType))
         .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException("sourceSystem or eventType is not supported"));
+        .orElseThrow(() -> new NotSupportedSourceOrEventException("sourceSystem or eventType is not supported"));
   }
 
 }
